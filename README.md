@@ -184,6 +184,16 @@ Option  "InvertX"       "0"
 Option  "InvertY"       "1"
 ```
 
+### Application Electron
+
+Pour l'utilisation avec Electron, il faut au prealable installer les dépendances.
+
+```bash
+apt-get install libgtkextra-dev libgconf2-dev libnss3 libasound2 libxtst-dev
+```
+
+Il suffit alors de démarrer l'application dans le script `kiosk_start.sh`.
+
 ## Ressources
 
 * [Configuration d'in ecran tactile dans xorg.conf](https://www.plop.at/en/touchscreen.html)
