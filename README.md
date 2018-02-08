@@ -144,7 +144,7 @@ unclutter -idle "0.01" -root
 
 ### Rotation de l'écran
 
-La rotation de l'écran fait intervenir la configuration du serveur X que vous trouverez dans `/etx/X11/xorg.conf`.
+La rotation de l'écran fait intervenir la configuration du serveur X que vous trouverez dans `/etc/X11/xorg.conf`.
 Si cette configuration n'existe pas, créez là avec le squelette suivant.
 
 ```
