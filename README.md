@@ -17,6 +17,12 @@ On peux alors choisir "n'importe qui" dans le menu qui s'affiche.
 dpkg-reconfigure xserver-xorg-legacy
 ```
 
+> Cette opération peut aussi être éfféctuée en modifiant le fichier `/etc/X11/Xwrapper.config`.
+> On remplace la valeur de `allowed_users` par `anybody`.
+> ```
+> allowed_users=anybody
+> ```
+
 On installe un gestionnaire de fenêtres minimal comme `lwm`
 
 ```bash
