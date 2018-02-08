@@ -63,6 +63,8 @@ Cela aura pour effet de copier le service contenu dans `/lib/systemd/system/gett
 systemctl edit getty@tty1
 ```
 
+> Cette opération, peut être efféctuée en créant le fichier `/etc/systemd/system/getty@tty1.service.d/override.conf` et en y ajoutant le contenu donné ci-dessous.
+
 Dans le fichier en édition, on ajoute les lignes permettant d'override l'éxécution de getty.
 Il est nécéssaire de laisser une chaine vide pour vider la commande au préalable
 
