@@ -44,7 +44,7 @@ apt-get install chromium browser
 Commencez par créer un utilisateur non-root qui affichera le kiosk
 
 ```bash
-useradd -Dm kiosk -c "Le compte en charge d'afficher l'application de kiosk"
+useradd -m kiosk -c "Le compte en charge d'afficher l'application de kiosk"
 ```
 
 On l'ajoute au groupe `audio` pour qu'il puisse controler et diffuser du son et au groupe `tty` pour qu'il puisse interagire avec les consoles virtuelles.
