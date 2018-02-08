@@ -142,6 +142,16 @@ On ajoute alors à notre script `kiosk_start.sh` la commande permettant de cache
 unclutter -idle "0.01" -root
 ```
 
+### Réduire l'attente réseau
+
+Certaines distributions, attendent la connexion réseau 5 minutes avant de démarrer pour garantir cette connexion.
+Dans la majorité des cas, cette connexion est plus rapide ou inexistante, il est donc inutile d'attendre 5 minutes.
+Pour chager ce timeout, on doit modifier le fichier `/etc/systemd/system/network-online.targets.wants/networking.service`. Ce fichier est en charge de mettre en place la connexion réseau de toutes les interfaces. On doit modifier la valeur de `TimeoutStartSec` de `5min` à `5sec`
+
+```
+TimeoutStartSec=5sec
+```
+
 ### Rotation de l'écran
 
 La rotation de l'écran fait intervenir la configuration du serveur X que vous trouverez dans `/etc/X11/xorg.conf`.
@@ -206,3 +216,4 @@ Il suffit alors de démarrer l'application dans le script `kiosk_start.sh`.
 
 * [Configuration d'in ecran tactile dans xorg.conf](https://www.plop.at/en/touchscreen.html)
 * [Bug Ubuntu empechant le démarrage de xorg avec systemd sur les utilisateurs non root](https://bugs.launchpad.net/ubuntu/+source/xinit/+bug/1562219)
+* [Annuler l'attente du réseau](https://ubuntuforums.org/showthread.php?t=2323253&p=13488422#post13488422)
