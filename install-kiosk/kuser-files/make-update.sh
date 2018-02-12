@@ -79,4 +79,4 @@ done
 echo "Fin de la mise à jour" >> $LOGFILE
 echo "Redémarrage dans 10 secondes" >> $LOGFILE
 sleep 10
-mv $LOGFILE "./update-$TIMESTAMP.log"
+mv $LOGFILE "$1/update-$TIMESTAMP.log"
