@@ -115,9 +115,14 @@ set -i -e "s/TimeoutStartSec=[^\n]+/TimeoutStartSec=$NETWORKWAIT/g" "/etc/system
 
 if [[ $UPDATE == "yes" ]]; then
 	echo "Installation du système de mise à jour"
-	cp kuser-files/make-update.sh /home/$KUSER
-	chmod +xr /home/$KUSER/make-update.sh
+	cp ./kuser-files/make-update.sh /home/$KUSER
+	cp ./kuser-files/connection-update.sh /home/$KUSER
+	chmod +xr /home/$KUSER/make-update.sh /home/$KUSER/connection-update.sh
+	cp ./kuser-files/udev-rule.rules /etc/udev/rules.d/connection-update.rules
+	cp ./kuser-files/systemd-service.service "/etc/systemd/system/connection-update@.service"
 	mkdir /home/$KUSER/update-actions
+	cp kuser-files/update-actions/* /home/$KUSER/update-actions
+	chmod 744 /home/$KUSER/update-actions/*
 fi
 
 echo ""
