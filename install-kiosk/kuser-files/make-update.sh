@@ -51,7 +51,8 @@ else
 			echo "La version actuelle est la même que la version du disque." >> $LOGFILE
 			echo "Mise à jour inutile" >> $LOGFILE
 			sleep 10
-			mv $LOGFILE "./update-$TIMESTAMP.log"
+			cp $LOGFILE "$1/update-$TIMESTAMP.log"
+			rm $LOGFILE
 			exit 1
 		fi
 	fi
@@ -79,4 +80,5 @@ done
 echo "Fin de la mise à jour" >> $LOGFILE
 echo "Redémarrage dans 10 secondes" >> $LOGFILE
 sleep 10
-mv $LOGFILE "$1/update-$TIMESTAMP.log"
+cp $LOGFILE "$1/update-$TIMESTAMP.log"
+rm $LOGFILE
