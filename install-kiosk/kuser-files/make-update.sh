@@ -1,5 +1,8 @@
 #!/bin/bash
 
+TIMESTAMP=$(date +%s)
+export TIMESTAMP
+
 if [[ $1 == "" ]]; then
 	echo "Source update folder is required"
 	exit 1
@@ -48,7 +51,7 @@ else
 			echo "La version actuelle est la même que la version du disque." >> $LOGFILE
 			echo "Mise à jour inutile" >> $LOGFILE
 			sleep 10
-			rm $LOGFILE
+			mv $LOGFILE "./update-$TIMESTAMP.log"
 			exit 1
 		fi
 	fi
@@ -74,4 +77,6 @@ for line in $UPDATEFILECONTENT; do
 done
 
 echo "Fin de la mise à jour" >> $LOGFILE
-rm $LOGFILE
+echo "Redémarrage dans 10 secondes" >> $LOGFILE
+sleep 10
+mv $LOGFILE "./update-$TIMESTAMP.log"
