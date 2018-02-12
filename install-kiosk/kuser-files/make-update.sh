@@ -1,7 +1,7 @@
 #!/bin/bash
 
 TIMESTAMP=$(date +%s)
-export TIMESTAMP
+HOSTNAME=$(cat /etc/hostname)
 
 if [[ $1 == "" ]]; then
 	echo "Source update folder is required"
@@ -80,5 +80,5 @@ done
 echo "Fin de la mise à jour" >> $LOGFILE
 echo "Redémarrage dans 10 secondes" >> $LOGFILE
 sleep 10
-cp $LOGFILE "$1/update-$TIMESTAMP.log"
+cp $LOGFILE "$1/update-$HOSTNAME-$TIMESTAMP.log"
 rm $LOGFILE
