@@ -1,0 +1,4 @@
+KERNEL=="sd[b-z]*", ACTION=="add", RUN+="/bin/systemctl start connection-update@%k"
+KERNEL=="sd[b-z]*", ACTION=="remove", RUN+="/bin/systemctl stop connection-update@%k"
+KERNEL=="mmcblk[0-9]p*", ACTION=="add", RUN+="/bin/systemctl start connection-update@%k"
+KERNEL=="mmcblk[0-9]p*", ACTION=="remove", RUN+="/bin/systemctl stop connection-update@%k"
