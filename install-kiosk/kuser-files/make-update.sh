@@ -39,22 +39,21 @@ killall xinit
 if [[ ! -f $VERSIONFILE ]]; then
 	echo "Aucun fichier de version dans le disque de mise à jour." >> $LOGFILE
 else
+	UPDATEVERSION=$(cat "$VERSIONFILE")
 	if [[ ! -f "./app.version" ]]; then
 		echo "Aucun fichier de version dans les dossiers de l'application" >> $LOGFILE
-		cat "$VERSIONFILE" > ./app.version
 	else
 		CURRENTVERSION=$(cat "./app.version")
-		UPDATEVERSION=$(cat "$VERSIONFILE")
-		if [[ CURRENTVERSION == UPDATEVERSION ]]; then
+		if [[ "$CURRENTVERSION" == "$UPDATEVERSION" ]]; then
 			echo "La version actuelle est la même que la version du disque." >> $LOGFILE
 			echo "Mise à jour inutile" >> $LOGFILE
 			sleep 10
 			rm $LOGFILE
 			exit 1
 		fi
-		echo "$UPDATEVERSION" > ./app.version
-		echo "Mise à jour vers la version $UPDATEVERSION" >> $LOGFILE
 	fi
+	echo "$UPDATEVERSION" > ./app.version
+	echo "Mise à jour vers la version $UPDATEVERSION" >> $LOGFILE
 fi
 
 echo "Démarrage de la mise à jour" >> $LOGFILE
