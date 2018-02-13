@@ -111,7 +111,7 @@ if [[ $DISABLEGRUB == "yes" ]]; then
 fi
 
 echo "Définition du temps d'attente réseau"
-set -i -e "s/TimeoutStartSec=[^\n]+/TimeoutStartSec=$NETWORKWAIT/g" "/etc/systemd/system/network-online.targets.wants/networking.service"
+set -i -e "s/TimeoutStartSec=[^\n]*/TimeoutStartSec=$NETWORKWAIT/g" "/etc/systemd/system/network-online.target.wants/networking.service"
 
 if [[ $UPDATE == "yes" ]]; then
 	echo "Installation du système de mise à jour"
