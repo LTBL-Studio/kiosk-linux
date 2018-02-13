@@ -1,0 +1,7 @@
+[Unit]
+Description=Mount and update on disk %i
+[Service]
+Type=oneshot
+RemainAfterExit=true
+ExecStart=/home/kiosk/connection-update.sh add %i
+ExecStop=/home/kiosk/connection-update.sh remove %i
