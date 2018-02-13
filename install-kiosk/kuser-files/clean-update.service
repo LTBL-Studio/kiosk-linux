@@ -3,3 +3,5 @@ Description=Clear last failed updates after reboot
 [Service]
 Type=oneshot
 ExecStart=/home/kiosk/clean-update.sh
+[Install]
+WantedBy=multi-user.target
