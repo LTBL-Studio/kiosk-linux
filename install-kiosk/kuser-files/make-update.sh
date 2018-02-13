@@ -73,7 +73,7 @@ for line in $UPDATEFILECONTENT; do
 	if [[ ! -f "./update-actions/${action}.sh" ]]; then
 		echo "L'action $action est inconnue" >> $LOGFILE
 	else
-		/bin/bash -c "./update-actions/${action}.sh $args" >> $LOGFILE
+		/bin/bash -c "./update-actions/${action}.sh $args" >> $LOGFILE 2>&1
 	fi
 done
 
@@ -82,3 +82,4 @@ echo "Redémarrage dans 10 secondes" >> $LOGFILE
 sleep 10
 cp $LOGFILE "$1/update-$HOSTNAME-$TIMESTAMP.log"
 rm $LOGFILE
+reboot
