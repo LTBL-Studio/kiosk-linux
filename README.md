@@ -217,3 +217,4 @@ Il suffit alors de démarrer l'application dans le script `kiosk_start.sh`.
 * [Configuration d'in ecran tactile dans xorg.conf](https://www.plop.at/en/touchscreen.html)
 * [Bug Ubuntu empechant le démarrage de xorg avec systemd sur les utilisateurs non root](https://bugs.launchpad.net/ubuntu/+source/xinit/+bug/1562219)
 * [Annuler l'attente du réseau](https://ubuntuforums.org/showthread.php?t=2323253&p=13488422#post13488422)
+* [Problème de boot apres un clonage](https://askubuntu.com/questions/380447/uefi-boot-fails-when-cloning-image-to-new-machine#380564)
