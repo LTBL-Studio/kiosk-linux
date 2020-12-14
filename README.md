@@ -23,10 +23,10 @@ dpkg-reconfigure xserver-xorg-legacy
 > allowed_users=anybody
 > ```
 
-On installe un gestionnaire de fenêtres minimal comme `lwm`
+On installe un gestionnaire de fenêtres minimal comme `openbox`
 
 ```bash
-apt-get install lwm
+apt-get install openbox
 ```
 
 Puis on installe les composants audio
@@ -100,7 +100,7 @@ xset s off
 # On active les drivers audio
 start-pulseaudio-x11
 # On démarre en arrière plan le gestionnaire de fenêtres
-lwm &
+openbox-session &
 # On attend que le gestionnaire soit ouvert
 sleep 1
 # On démarre l'application de kiosk (ici chromium)
